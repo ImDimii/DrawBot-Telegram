@@ -5,7 +5,7 @@ Bot sorteggio per telegram con collegamento ad un canale
 ```
 pip install -r requirements.txt
 ```
-### Edit TOKEN BOT and USERNAME OF CHANNEL on main.py 
+Edit TOKEN BOT and USERNAME OF CHANNEL on main.py 
 
 ### Run program
 ```
