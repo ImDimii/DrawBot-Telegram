@@ -1,5 +1,5 @@
-# SorteggioBot
-Bot sorteggio per telegram con collegamento ad un canale
+# DrawBot
+Draw bot for telegram with connection to a channel
 
 ### Install libraries python
 ```
