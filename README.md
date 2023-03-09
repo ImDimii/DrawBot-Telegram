@@ -6,6 +6,7 @@ Draw bot for telegram with connection to a channel
 pip install -r requirements.txt
 ```
 Edit TOKEN BOT and USERNAME OF CHANNEL on main.py 
+Put the bot in your channel and make it an admin
 
 ### Run program
 ```
