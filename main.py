@@ -8,7 +8,7 @@ bot = telebot.TeleBot('YOURTOKEN')
 participants = []
 is_closed = False
 # ID del canale in cui inviare il messaggio per partecipare
-channel_id = "@OFCHANNEL"
+channel_id = "@canale"
 
 # Gestore per il comando /start
 @bot.message_handler(commands=['start'])
@@ -53,6 +53,7 @@ def participate_inline(call):
     if is_closed:
         # Se il sorteggio è chiuso, non è possibile partecipare
         bot.answer_callback_query(callback_query_id=call.id, text='Mi dispiace, il sorteggio è già chiuso.')
+        bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'Partecipa al sorteggio *{title}*\n\n{description}\n\n_*SORTEGGIO CHIUSO*_\n\n\.', parse_mode='MarkdownV2')
         return
     # Aggiunge l'utente alla lista dei partecipanti se non è già presente
     if call.from_user.id not in participants:
@@ -77,7 +78,7 @@ def extract_winner(message):
         # Rimuove tutti i partecipanti dalla lista
         participants.clear()
         # Invia un messaggio nel canale per informare che il sorteggio è stato completato
-        bot.send_message(channel_id, f'Il sorteggio *{title}* è stato completato\!\n\n*Il vincitore è {winner.first_name} \(@{winner.username}\)\.*\n\n_Contatta_ @GivawaySupportIT _per poter ritirare il premio\!_', parse_mode='MarkdownV2')
+        bot.send_message(channel_id, f'Il sorteggio *{title}* è stato completato\!\n\n*Il vincitore è @{winner.username}\.*\n\n_Contatta_ @tua_per poter ritirare il premio\!_', parse_mode='MarkdownV2')
     else:
         bot.reply_to(message, 'Non ci sono abbastanza partecipanti per estrarre un vincitore!')
 
